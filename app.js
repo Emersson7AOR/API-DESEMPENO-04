@@ -1,6 +1,7 @@
 import express from "express";
 import clienteRoutes from "./routes/clienteRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
+import empleadoRoutes from './routes/empleadoRoutes.js';
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.get("/ping", async (req, res) => {
 
 app.use("/api/clientes", clienteRoutes);
 app.use("/api/products", productRoutes);
+app.use('/api/empleados', empleadoRoutes);
 
 app.listen(port, () => {
   console.log(`Servidor escuchando en ${port}`);
