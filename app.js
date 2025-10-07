@@ -1,19 +1,28 @@
 import express from "express";
 import clienteRoutes from "./routes/clienteRoutes.js";
+import sucursalRoutes from "./routes/sucursalRoutes.js";
+import productRoutes from "./routes/productRoutes.js";
+import empleadoRoutes from "./routes/empleadoRoutes.js";
+import departamentosRoutes from "./routes/departamentosRoutes.js"; // <-- Nuevo módulo
 
 const app = express();
+
 const port = process.env.PORT || 3000;
 
-// Middleware para parsear JSON
 app.use(express.json());
 
-// Ruta de prueba
-app.get("/ping", (req, res) => {
+app.get("/ping", async (req, res) => {
   res.json({ message: "API funcionando correctamente" });
 });
 
+
+// Rutas
 app.use("/api/clientes", clienteRoutes);
+app.use("/api/sucursales", sucursalRoutes);
+app.use("/api/products", productRoutes);
+app.use("/api/empleados", empleadoRoutes);
+app.use("/api/departamentos", departamentosRoutes); // <-- Integración de departamentos
 
 app.listen(port, () => {
-  console.log(`✅ Servidor escuchando en el puerto ${port}`);
+  console.log(`Servidor escuchando en ${port}`);
 });
