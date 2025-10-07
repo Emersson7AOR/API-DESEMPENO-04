@@ -1,11 +1,9 @@
 import express from "express";
 import clienteRoutes from "./routes/clienteRoutes.js";
-<<<<<<< HEAD
 import sucursalRoutes from "./routes/sucursalRoutes.js";
-=======
 import productRoutes from "./routes/productRoutes.js";
 import empleadoRoutes from './routes/empleadoRoutes.js';
->>>>>>> origin/QA
+
 
 const app = express();
 
@@ -19,13 +17,13 @@ app.get("/ping", async (req, res) => {
 
 // Rutas
 app.use("/api/clientes", clienteRoutes);
-<<<<<<< HEAD
+HEAD
 
 app.use("/api/sucursales", sucursalRoutes);
-=======
+
 app.use("/api/products", productRoutes);
 app.use('/api/empleados', empleadoRoutes);
->>>>>>> origin/QA
+origin/QA
 
 app.listen(port, () => {
   console.log(`Servidor escuchando en ${port}`);
